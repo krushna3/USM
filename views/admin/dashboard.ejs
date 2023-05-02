@@ -1,0 +1,72 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+    }
+
+    .home {
+        color: gray;
+    }
+
+    .home:hover {
+        color: blue;
+    }
+
+    .table {
+        width: 50%;
+    }
+</style>
+
+<% include('../layouts/header.ejs') %>
+    <a href="/admin/home" class="home"><span class="material-symbols-outlined">
+            home
+        </span></a>
+    <br><br>
+
+    <button><a href="/admin/new-user">Add New User</a></button>
+    <br><br>
+    <table class="table">
+        <tr>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mob No.</th>
+            <th>Verified</th>
+            <th>Actions</th>
+        </tr>
+        <% if(users.length> 0){
+            for(let i = 0;i<users.length;i++) { %>
+                <tr>
+                    <td><img src="/userImages/<%= users[i].image %>" alt="image" width="100px" height="100px"></td>
+                    <td>
+                        <%= users[i].name%>
+                    </td>
+                    <td>
+                        <%= users[i].email%>
+                    </td>
+                    <td>
+                        <%= users[i]. mobile%>
+                    </td>
+                    <td>
+                        <%if(users[i].is_verified){%>
+                            <p>Verified</p>
+                            <% }else{%>
+                                <p>Not Verified</p>
+                                <%}%>
+                    </td>
+                    <td><a href="/admin/edit-user?id=<%= users[i]._id%>">Edit</a></td>
+                    <td><a href="/admin/delete-user?id=<%= users[i]._id%>">Delete</a></td>
+                </tr>
+                <% } } else{ %>
+                    <tr>
+                        <td colspan="5">User Not Found</td>
+                    </tr>
+                    <% } %>
+    </table>
+    <% include('../layouts/footer.ejs') %>

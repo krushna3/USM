@@ -1,0 +1,35 @@
+<%- include('../layouts/header.ejs') -%>
+    <div class="container">
+        <div class="drop">
+            <div class="content">
+                <h3>Sign-In</h3>
+                <% if(typeof message !='undefined' ){%>
+                    <%if(message==="Your email has been verified please login with your new email" ){%>
+                        <div class="alter alert-success text-center" style="color: green;">
+                            <%= message %>
+                        </div>
+                        <% }else{%>
+                            <div class="alter alert-success text-center" style="color: red;">
+                                <%= message %>
+                            </div>
+                            <%}%>
+                                <%}%>
+                                    <form action="/login" method="POST">
+                                        <div class="inputBox">
+                                            <input type="email" name="email" required placeholder="Enter Email">
+                                        </div>
+                                        <div class="inputBox">
+                                            <input type="password" name="password" required
+                                                placeholder="Enter Password">
+                                        </div>
+                                        <div class="inputBox">
+                                            <input type="submit" value="Sign in">
+                                        </div>
+                                    </form>
+            </div>
+        </div>
+        <!-- <a href="/forget" class="btns">Forget Password</a> -->
+        <a href="/register" class="btns signup">Sign-up</a>
+    </div>
+
+    <%- include('../layouts/footer.ejs') -%>

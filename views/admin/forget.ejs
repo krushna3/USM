@@ -1,0 +1,22 @@
+<%- include('../layouts/header.ejs') -%>
+    <div class="container">
+        <div class="drop">
+            <div class="content">
+                <h3>Forget</h3>
+                <%if(typeof message !=='undefined' ){%>
+                    <h6>
+                        <%=message%>
+                    </h6>
+                    <%}%>
+                        <form action="" method="post">
+                            <div class="inputBox">
+                                <input type="email" name="email" required placeholder="Enter email">
+                            </div>
+                            <div class="inputBox">
+                                <input type="submit" value="Forget">
+                            </div>
+                        </form>
+            </div>
+        </div>
+    </div>
+    <%- include('../layouts/footer.ejs') -%>

@@ -1,0 +1,23 @@
+<%- include('../layouts/header.ejs') -%>
+    <div class="container">
+        <div class="drop">
+            <div class="content">
+                <h3>Forget Password</h3>
+                <% if(typeof message !='undefined' ){ %>
+                    <h4>
+                        <%= message %>
+                    </h4>
+                    <% }%>
+                        <form action="/forget" method="post">
+                            <div class="inputBox">
+                                <input type="email" name="email" required placeholder="Enter email">
+                            </div>
+                            <div class="inputBox">
+                                <input type="submit" value="Reset">
+                            </div>
+                        </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../layouts/footer.ejs') -%>
